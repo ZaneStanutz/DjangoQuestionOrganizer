@@ -1,0 +1,17 @@
+﻿{% extends parent_template|default:"organizer/base_organizer.html" %}
+
+{%block title%}
+{{ category.name|title }} 
+{% endblock %}
+
+{% block content %}
+<h2>Questions to ask at the {{category.name}}&hellip;</h2>
+{% if category.question_set.all %}
+    <ol>
+        {% for item in category.question_set.all %}
+            <li>{{item.question}}</li>
+        {% endfor %}
+    </ol>
+{% endif %}
+<a href="{% url 'organizer_categories' %}">Home</a>
+{% endblock %}

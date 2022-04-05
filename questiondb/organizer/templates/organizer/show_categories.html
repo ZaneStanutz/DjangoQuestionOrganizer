@@ -1,0 +1,19 @@
+﻿{% extends parent_template|default:"organizer/base_organizer.html" %}
+
+{% block title %}
+ {{block.super}}
+{% endblock %}
+
+{% block content %}
+  <h1>Question Categories</h1>
+  <ul>
+    {% for category in categories %}
+      <li>
+        <a href="{{ category.get_absolute_url }}">
+          {{ category.name|title }}</a>
+      </li>
+    {% empty %}
+      <li><em>There are currently no Tags available.</em></li>
+    {% endfor %}
+  </ul>
+{% endblock %}
